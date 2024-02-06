@@ -1,0 +1,29 @@
+theme = "nightfox-custom"
+
+[editor]
+auto-save = true
+preview-completion-insert = false
+completion-replace = true
+color-modes	= true
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "file-name", "read-only-indicator", "file-modification-indicator", "diagnostics", "spinner"]
+right = ["position", "file-encoding", "file-line-ending", "file-type"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-inlay-hints = true
+
+[keys.normal]
+A-d = "delete_selection_noyank"
+d = "delete_selection_noyank"
+A-c = "change_selection_noyank"
+c = "change_selection_noyank"

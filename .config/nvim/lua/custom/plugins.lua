@@ -2,6 +2,21 @@ local cmp = require "cmp"
 
 local plugins = {
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      filters = {
+        custom = { '.DS_Store', ".git" },
+      },
+      git = {
+        enable = true,
+      },
+      view = {
+        adaptive_size = false,
+        preserve_window_proportions = true,
+      },
+    }
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {

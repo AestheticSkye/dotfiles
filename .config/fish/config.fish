@@ -4,6 +4,7 @@ if status is-interactive
 	starship init fish | source
 
 	alias ls='eza --no-quotes --icons -l -F -h --group-directories-first --git'
+  alias tree='ls --tree --git-ignore'
 	alias rainbowfetch='neofetch | lolcat'
 	alias mv="mv -i"
 

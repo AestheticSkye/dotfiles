@@ -10,9 +10,8 @@ local plugins = {
       git = {
         enable = true,
       },
-      view = {
-        adaptive_size = false,
-        preserve_window_proportions = true,
+      renderer = {
+        highlight_git = true,
       },
     }
   },
@@ -63,6 +62,8 @@ local plugins = {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function ()
+      vim.g.rustfmt_command = 'rustfmt +nightly'
+      vim.g.rustfmt_options = '--unstable-features'
       vim.g.rustfmt_autosave = 1
     end
   },

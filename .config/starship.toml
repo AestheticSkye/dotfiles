@@ -73,6 +73,7 @@ disabled = false # Disabled by default
 [os.symbols]
 Macos = " "
 Debian = " "
+NixOS = "󱄅 "
 
 [directory]
 style = "bg:#DA627D"

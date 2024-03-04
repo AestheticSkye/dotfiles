@@ -7,6 +7,7 @@ if status is-interactive
   alias tree='ls --tree --git-ignore'
 	alias rainbowfetch='neofetch | lolcat'
 	alias mv="mv -i"
+  alias man="batman"
 
 	test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 

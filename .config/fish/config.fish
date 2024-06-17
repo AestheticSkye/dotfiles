@@ -1,7 +1,10 @@
 if status is-interactive
 	# Commands to run in interactive sessions can go here
-
-	starship init fish | source
+  function starship_transient_prompt_func
+    starship module character 
+  end
+  starship init fish | source
+  enable_transience
 
 	alias ls='eza --no-quotes --icons -l -F -h --group-directories-first --git'
   alias tree='ls --tree --git-ignore'

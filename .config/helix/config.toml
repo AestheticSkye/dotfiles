@@ -1,4 +1,4 @@
-theme = "nightfox-custom"
+theme = "catppuccin_mocha"
 
 [editor]
 auto-save = true

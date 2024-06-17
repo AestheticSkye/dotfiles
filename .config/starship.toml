@@ -1,14 +1,8 @@
 format = """
-[](#9A348E)\
-$os\
-$username\
-$sudo\
-[](bg:#DA627D fg:#9A348E)\
+[╭─](fg:surface0)\
+
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
-$git_branch\
-$git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+
 $zig\
 $c\
 $elixir\
@@ -22,27 +16,66 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#86BBD8 bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
+
+$git_branch\
+
+$git_status\
+
+$fill\
+
+$cmd_duration\
+$status\
+$sudo\
+
+$line_break\
+[│](fg:surface0)\
+
+$line_break\
+[╰─](fg:surface0)\
+[♥ ](fg:pink)
 """
 
 right_format = """
-$cmd_duration\
-$status\
+
 """
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+palette = "catppuccin_mocha"
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
-[username]
-show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
-format = '[$user ]($style)'
-disabled = false
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+# base = "#1e1e2e"
+base = "#28283e"
+mantle = "#181825"
+crust = "#11111b"
+
+[character]
+success_symbol = "[](bold pink)"
+error_symbol = "[](bold red)"
+
+[fill]
+symbol = " "
 
 [status]
 symbol = ""
@@ -50,119 +83,126 @@ not_executable_symbol = "󰮘"
 not_found_symbol = "?"
 sigint_symbol = "󰗼"
 signal_symbol = "󱐋"
-format = '[$symbol ]($style)'
+style = "bg:base fg:red"
+format = '[](fg:base bg:none)[$symbol]($style)[](fg:base bg:none) '
 map_symbol = true
 disabled = false
 
 [cmd_duration]
-style = "#2b3054"
-format = '[$duration ]($style)'
-
-[sudo]
-symbol = ' '
-format = '[$symbol]($style)'
-style = "bg:#9a348e"
-disabled = false
+style = "bg:base fg:subtext1"
+format = '[](fg:base bg:none)[$duration]($style)[](fg:base bg:none) '
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:#9A348E"
+style = "bg:base"
 disabled = false # Disabled by default
 
 [os.symbols]
-Macos = " "
-Debian = " "
-NixOS = "󱄅 "
+Macos = ""
+Debian = ""
+NixOS = "󱄅"
 
-[directory]
-style = "bg:#DA627D"
-read_only = " "
-format = "[ $read_only$path ]($style)"
-truncation_length = 3
+[sudo]
+symbol = ''
+format = '[](fg:base bg:none)[$symbol]($style)[](fg:base bg:none)'
+style = "bg:base fg:red"
+disabled = false
+
+[directory] # 
+format = "[](fg:base bg:none)[$path$read_only](fg:mauve bg:base)[](fg:base bg:none) "
+read_only = "  "
+truncation_length = 4
+truncate_to_repo = false
 truncation_symbol = "…/"
-
-[zig]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[swift]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+use_os_path_sep = true
 
 [git_branch]
-symbol = ""
-style = "bg:#FCA17D"
-format = '[ $symbol $branch ]($style)'
+style = "bg:base fg:maroon"
+format = '[](fg:base bg:none)[$branch]($style)[](fg:base bg:none) '
 
-[git_status]
-style = "bg:#FCA17D"
-format = '[$all_status$ahead_behind ]($style)'
+[git_status] #    
+format = "[](fg:base bg:none)$ahead_behind[](fg:base bg:none) $stashed$staged$modified$renamed$deleted$untracked"
+
+up_to_date = "[](fg:green bg:base)"
+ahead = "[ahead\\(×${count}\\)](fg:yellow bg:base)"
+behind = "[behind\\(×${count}\\)](fg:yellow bg:base)"
+conflicted = "[ conflicted ](fg:red bg:base)"
+diverged = "[ diverged ](fg:red bg:base)$ahead_behind"
+
+#   → ✗ 
+staged = "[](fg:base bg:none)[${count}!](fg:green bg:base)[](fg:base bg:none) "
+modified = "[](fg:base bg:none)[${count}!](fg:yellow bg:base)[](fg:base bg:none) "
+untracked = "[](fg:base bg:none)[${count}?](fg:red bg:base)[](fg:base bg:none) "
+renamed = "[](fg:base bg:none)[${count}→](fg:green bg:base)[](fg:base bg:none) "
+deleted = "[](fg:base bg:none)[${count}✗](fg:red bg:base)[](fg:base bg:none) "
+stashed = "[](fg:base bg:none)[${count}\\$](fg:blue bg:base)[](fg:base bg:none) "
+
+[zig]
+symbol = ""
+style = "bg:base fg:yellow"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
+
+[swift]
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
+
+[c]
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
+
+[elixir]
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
+
+[elm]
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [golang]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [gradle]
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [haskell]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [java]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [julia]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [nim]
-symbol = "󰆥 "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+symbol = "󰆥"
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:base fg:peach"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [scala]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[time]
-disabled = false
-time_format = "%I:%M %P"
-style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
-use_12hr = true
+symbol = ""
+style = "bg:blue"
+format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'

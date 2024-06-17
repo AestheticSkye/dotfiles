@@ -1,5 +1,6 @@
 format = """
 [╭─](fg:surface0)\
+$hostname\
 
 $directory\
 
@@ -35,10 +36,6 @@ $line_break\
 [♥ ](fg:pink)
 """
 
-right_format = """
-
-"""
-
 palette = "catppuccin_mocha"
 
 [palettes.catppuccin_mocha]
@@ -69,6 +66,10 @@ surface0 = "#313244"
 base = "#28283e"
 mantle = "#181825"
 crust = "#11111b"
+
+[hostname]
+style = "fg:bold green bg:base"
+format = "[](fg:base bg:none)[SSH]($style)[](fg:base bg:none) "
 
 [character]
 success_symbol = "[](bold pink)"

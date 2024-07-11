@@ -146,56 +146,56 @@ format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [swift]
 symbol = ""
-style = "bg:blue"
+style = "bg:base fg:orange"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [c]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [elixir]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [elm]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [golang]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [gradle]
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [haskell]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [java]
 symbol = ""
-style = "bg:blue"
+style = "bg:base fg:blue"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [julia]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [nodejs]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [nim]
 symbol = "󰆥"
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [rust]
@@ -205,5 +205,5 @@ format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
 
 [scala]
 symbol = ""
-style = "bg:blue"
+style = "bg:base"
 format = '[](fg:base)[$symbol ($version)]($style)[ ](fg:base)'
